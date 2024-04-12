@@ -17,7 +17,7 @@ jobs:
           dir_names: true
           matrix: true
           files: |
-            containers/**
+            containers/*
   build_test:
     name: test build
     needs: get_changes
