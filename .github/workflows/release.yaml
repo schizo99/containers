@@ -1,7 +1,7 @@
-name: "Test Build"
+name: "Build and push"
 on:
-  pull_request:
-
+  release:
+    types: [published]
 jobs:
   get_changes:
     name: Get changed folders/files
@@ -46,5 +46,5 @@ jobs:
         with:
           context: ${{ matrix.folder }}
           file: ./${{ matrix.folder }}/Dockerfile
-          push: false
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
