@@ -32,7 +32,7 @@ jobs:
         env:
           FOLDER: ${{ github.ref_name }}
         id: split
-        run: echo "fragment::${FOLDER##*/}" >> "${GITHUB_OUTPUT}"
+        run: echo "fragment=${FOLDER##*/}" >> "${GITHUB_OUTPUT}"
 
 
       - name: Extract metadata (tags, labels) for Docker
