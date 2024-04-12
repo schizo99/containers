@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        folder: ${{ needs.get_changes.outputs.all_changed_files }}
+        folder: ${{ fromJSON(needs.get_changes.outputs.all_changed_files) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
