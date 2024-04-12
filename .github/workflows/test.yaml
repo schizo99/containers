@@ -28,12 +28,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Split folder name
+        env:
+          FOLDER: ${{ github.ref_name }}
+        id: split
+        run: echo "fragment::${FOLDER##*/}" >> "${GITHUB_OUTPUT}"
+
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: schizo99/dnschecker
+          images: schizo99/${{ steps.split.outputs.fragment }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
