@@ -23,7 +23,7 @@ fi
 
 id
 echo "$(date): Starting squeezelite"
-squeezelite -n SqueezeLite -M SqueezeLite -s 192.168.101.226:3483
+squeezelite -n SqueezeLite -M SqueezeLite -s ${IP_ADDRESS}:3483
 
 echo "$(date): Squeezelite stopped"
 exit 1
